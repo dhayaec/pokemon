@@ -1,46 +1,13 @@
 "use client";
 import { useState } from "react";
-
-const POKEMON_TYPES = [
-  "Normal",
-  "Fire",
-  "Water",
-  "Grass",
-  "Electric",
-  "Ice",
-  "Fighting",
-  "Poison",
-  "Ground",
-  "Flying",
-  "Psychic",
-  "Bug",
-  "Rock",
-  "Ghost",
-  "Dragon",
-  "Dark",
-  "Steel",
-  "Fairy",
-];
+import PokemonTypeDropdown from "./PokemonTypeDropdown";
 
 export default function PokemonSearchForm() {
-  const [type, setType] = useState("");
   const [search, setSearch] = useState("");
 
   return (
-    <form className="flex flex-col gap-4 max-w-md p-4 rounded-lg">
-      <select
-        className="p-2 border rounded-md focus:ring focus:ring-blue-300"
-        value={type}
-        onChange={(e) => setType(e.target.value)}
-      >
-        <option value="">Select Pokémon Type</option>
-        {POKEMON_TYPES.map((t) => (
-          <option key={t} value={t}>
-            {t}
-          </option>
-        ))}
-      </select>
-
+    <form className="flex flex-col gap-4 max-w-md rounded-lg">
+      <PokemonTypeDropdown />
       <div className="relative flex items-center">
         <input
           type="text"
